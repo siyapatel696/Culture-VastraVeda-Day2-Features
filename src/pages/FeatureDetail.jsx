@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom"
 import { features, featureMap } from "../data/features"
 import AISuggestions from "./AISuggestions"
+import OpenAPI from "./OpenAPI"
 
 export default function FeatureDetail() {
   const { id } = useParams()
@@ -14,15 +15,14 @@ export default function FeatureDetail() {
     </div>
   )
 
-  // Feature 13 — render full page directly (no separate route needed)
+  // Feature 13 — AI Outfit Suggestions
   if (meta.id === 13) {
     return (
-      <div className="min-h-screen bg-black text-white">
-        <div className="p-4 max-w-2xl mx-auto">
-          <button
-            onClick={() => nav("/")}
-            className="text-sm text-zinc-400 mb-4 hover:text-white border border-zinc-800 px-3 py-1.5 rounded-lg"
-          >
+      <div style={{ minHeight: "100vh", backgroundColor: "#000", color: "#fff" }}>
+        <div style={{ padding: "16px", maxWidth: "672px", margin: "0 auto" }}>
+          <button onClick={() => nav("/")}
+            style={{ fontSize:"13px", color:"#71717a", background:"transparent", border:"1px solid #27272a",
+              padding:"4px 12px", borderRadius:"8px", cursor:"pointer", marginBottom:"8px" }}>
             ← Back
           </button>
         </div>
@@ -31,17 +31,29 @@ export default function FeatureDetail() {
     )
   }
 
-  // Feature 8 — navigates to debate board
-  const featureRoutes = {
-    8: "/feature/8/debate",
+  // Feature 15 — Open API
+  if (meta.id === 15) {
+    return (
+      <div style={{ minHeight: "100vh", backgroundColor: "#000", color: "#fff" }}>
+        <div style={{ padding: "16px", maxWidth: "720px", margin: "0 auto" }}>
+          <button onClick={() => nav("/")}
+            style={{ fontSize:"13px", color:"#71717a", background:"transparent", border:"1px solid #27272a",
+              padding:"4px 12px", borderRadius:"8px", cursor:"pointer", marginBottom:"8px" }}>
+            ← Back
+          </button>
+        </div>
+        <OpenAPI />
+      </div>
+    )
   }
+
+  // Feature 8 — Debate Board (external route)
+  const featureRoutes = { 8: "/feature/8/debate" }
 
   return (
     <div className="min-h-screen bg-black p-6 max-w-2xl mx-auto">
-      <button
-        onClick={() => nav("/")}
-        className="text-sm text-zinc-400 mb-6 hover:text-white border border-zinc-800 px-3 py-1.5 rounded-lg"
-      >
+      <button onClick={() => nav("/")}
+        className="text-sm text-zinc-400 mb-6 hover:text-white border border-zinc-800 px-3 py-1.5 rounded-lg">
         Back
       </button>
 
@@ -61,10 +73,8 @@ export default function FeatureDetail() {
       </div>
 
       {featureRoutes[meta.id] && (
-        <button
-          onClick={() => nav(featureRoutes[meta.id])}
-          className="w-full mb-6 bg-amber-600 hover:bg-amber-500 text-white font-medium py-2.5 rounded-xl transition-colors text-sm"
-        >
+        <button onClick={() => nav(featureRoutes[meta.id])}
+          className="w-full mb-6 bg-amber-600 hover:bg-amber-500 text-white font-medium py-2.5 rounded-xl transition-colors text-sm">
           Launch Feature
         </button>
       )}
@@ -78,11 +88,7 @@ export default function FeatureDetail() {
         <div key={label} className="bg-zinc-900 rounded-xl p-4 mb-4 border border-zinc-800">
           <p className="text-xs text-zinc-500 uppercase tracking-widest mb-3">{label}</p>
           {Array.isArray(val)
-            ? <ul className="space-y-1">
-                {val.map((v, i) => (
-                  <li key={i} className="text-sm text-zinc-300">{v}</li>
-                ))}
-              </ul>
+            ? <ul className="space-y-1">{val.map((v, i) => <li key={i} className="text-sm text-zinc-300">{v}</li>)}</ul>
             : <p className="text-sm text-zinc-300">{val}</p>
           }
         </div>
