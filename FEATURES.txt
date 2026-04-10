@@ -1,0 +1,287 @@
+VastraVeda - TestCases(Day-2) 
+Feature 1 — Community Clothing Submission Portal
+ GOAL
+Enable users to contribute traditional clothing data through a structured, multi-step form with moderation control.
+ REQUIREMENTS
+Multi-step form (at least 3 steps)
+Fields: Name, Region, Fabric, Embroidery, Occasion, Gender, Language
+Form validation (required fields, formats)
+Draft saving (optional but bonus)
+Submission status: Pending / Approved / Rejected
+Admin moderation view
+ IMPLEMENTATION STEPS
+Create form state (single object)
+Divide form into steps (Step1, Step2, Step3 components)
+Add navigation (Next / Previous)
+Validate inputs before moving to next step
+Store submissions in array/database with status = "pending"
+Create admin panel to approve/reject
+Update UI based on status
+ EXPECTED OUTPUT
+✔ Multi-step form works smoothly
+ ✔ Data stored with status
+ ✔ Admin can approve/reject
+ ✔ Only approved entries visible publicly
+
+Feature 2 — Cultural Tagging System
+ GOAL
+Allow categorization and filtering of clothing using dynamic cultural tags.
+ REQUIREMENTS
+Admin can create/edit/delete tags
+Tags attached to clothing items
+Tag pills UI on cards
+Click → filter items
+Support multiple tags per item
+ IMPLEMENTATION STEPS
+Create tag data structure (id, name)
+Add tag selection in clothing form
+Render tags as clickable pills
+Maintain selectedTag state
+Filter dataset based on selected tag
+Build admin UI for tag management
+EXPECTED OUTPUT
+✔ Tags visible on each clothing card
+ ✔ Clicking filters results instantly
+ ✔ Admin can manage tags
+
+
+Feature 3 — Fabric Substitution Guide
+GOAL
+Help users find alternative fabrics based on context like weather or affordability.
+REQUIREMENTS
+“Find Similar Fabric” button
+Modal showing alternatives
+Each alternative includes explanation
+Form to suggest new substitutions
+Moderation for suggestions
+IMPLEMENTATION STEPS
+Create fabric mapping dataset
+Add modal component
+Trigger modal on button click
+Render alternatives dynamically
+Add submission form inside modal
+Store suggestions in pending state
+EXPECTED OUTPUT
+✔ Modal opens with relevant fabric suggestions
+ ✔ Users can submit new alternatives
+ ✔ Suggestions stored for review
+
+
+Feature 4 — Multilingual Contribution Support
+GOAL
+Enable content contributions in multiple languages with translation workflow.
+REQUIREMENTS
+Language selector in form
+Store content language
+Translator dashboard
+Translation status tracking
+IMPLEMENTATION STEPS
+Add language dropdown
+Store language field in submission
+Create translation queue
+Assign items to translators
+Save translated versions
+Display based on selected language
+EXPECTED OUTPUT
+✔ Users can submit in different languages
+ ✔ Translators can pick and translate entries
+ ✔ Language toggle works
+
+
+Feature 5 — Photo & Video Contribution Module
+GOAL
+Allow users to enrich clothing data with media.
+  REQUIREMENTS
+Upload images/videos
+Preview before upload
+Store media links
+Gallery view on detail page
+IMPLEMENTATION STEPS
+Add file input
+Handle preview (URL.createObjectURL)
+Store media in array
+Create gallery component
+Render media grid
+Add basic moderation
+EXPECTED OUTPUT
+✔ Users upload media
+ ✔ Media visible in gallery
+ ✔ Supports images + videos
+
+
+Feature 6 — Clothing Heritage Badges & Gamification
+GOAL
+Motivate users through rewards and recognition.
+REQUIREMENTS
+Badge system
+Contribution tracking
+Milestone triggers
+Profile badge display
+ IMPLEMENTATION STEPS
+Track user contributions
+Define badge rules
+Check conditions on submission
+Assign badge
+Render badges on profile
+EXPECTED OUTPUT
+✔ Users earn badges
+ ✔ Badges visible on profile
+ ✔ Milestones trigger correctly
+
+
+Feature 7 — Cross Culture Clothing Comparison Tool
+GOAL
+Compare two clothing items side-by-side.
+REQUIREMENTS
+Select 2 items
+Display attributes comparison
+Highlight differences
+IMPLEMENTATION STEPS
+Create selection UI
+Store selected items
+Render comparison layout
+Compare fields dynamically
+Highlight mismatches
+EXPECTED OUTPUT
+✔ Side-by-side comparison
+ ✔ Differences clearly visible
+
+
+Feature 8 — Debate & Dispute Board
+GOAL
+Enable discussions on controversial cultural origins.
+ REQUIREMENTS
+Threaded discussions
+Replies
+Moderator controls
+Resolution note
+IMPLEMENTATION STEPS
+Create discussion structure
+Link to clothing item
+Add comment/reply system
+Add moderator role
+Allow closing threads
+EXPECTED OUTPUT
+✔ Users can debate
+ ✔ Threads organized
+ ✔ Moderator resolves discussions
+
+
+Feature 9 — Issue Tracker for Cultural Accuracy
+GOAL
+Ensure correctness of cultural data.
+REQUIREMENTS
+Report issue button
+Issue form
+Status tracking
+Moderator dashboard
+IMPLEMENTATION STEPS
+Add report button
+Create issue form
+Store issue with status
+Build dashboard
+Update status on resolution
+ EXPECTED OUTPUT
+✔ Issues can be raised
+ ✔ Moderators resolve them
+ ✔ Status updates visible
+
+
+Feature 10 — Contributor Leaderboard
+GOAL
+Rank contributors based on activity.
+REQUIREMENTS
+Scoring system
+Sorting leaderboard
+Filters (time/state/type)
+IMPLEMENTATION STEPS
+Track contributions
+Assign scores
+Sort users
+Build leaderboard UI
+Add filters
+EXPECTED OUTPUT
+✔ Ranked list of contributors
+ ✔ Filters working
+
+
+Feature 11 — Open Dataset Export
+GOAL
+Allow users to download cultural data.
+REQUIREMENTS
+Export JSON/CSV
+Download button
+Dataset metadata
+IMPLEMENTATION STEPS
+Convert data to JSON/CSV
+Create download function
+Add UI for export
+Include metadata
+EXPECTED OUTPUT
+✔ Data downloadable
+ ✔ Formats available
+
+
+Feature 12 — Clothing Version Control
+ GOAL
+Track changes in clothing data.
+REQUIREMENTS
+Save versions
+View history
+Compare changes
+IMPLEMENTATION STEPS
+Store previous versions
+Add version history UI
+Compare old vs new
+Allow rollback
+EXPECTED OUTPUT
+✔ Version history visible
+ ✔ Differences highlighted
+
+
+Feature 13 — AI Powered Outfit Suggestion
+GOAL
+Recommend similar outfits intelligently.
+REQUIREMENTS
+Suggest based on attributes
+Display recommendation section
+IMPLEMENTATION STEPS
+Create similarity logic
+Compare attributes
+Rank results
+Display suggestions
+EXPECTED OUTPUT
+✔ Relevant suggestions shown
+
+
+Feature 14 — Camera Based Fabric Identifier
+GOAL
+Identify fabric using camera input.
+REQUIREMENTS
+Camera access
+Image capture
+Fabric classification
+IMPLEMENTATION STEPS
+Enable camera
+Capture image
+Process input (mock/ML)
+Display result
+EXPECTED OUTPUT
+✔ Fabric identified (basic/mock acceptable)
+
+
+Feature 15 — Open Clothing API
+GOAL
+Expose platform data for developers.
+REQUIREMENTS
+API endpoints
+API key system
+Documentation page
+IMPLEMENTATION STEPS
+Create REST endpoints
+Add API key validation
+Build docs UI
+Test endpoints
+EXPECTED OUTPUT
+✔ API working
+ ✔ Docs accessible
